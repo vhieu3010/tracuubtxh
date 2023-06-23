@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/admin.css" />
+    <link rel="stylesheet" href="/stylesheets/respond.css" />
+    <title>Trang Admin | Tạo tài khoản người dùng</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="banner">
+        <a href="/admin">
+          <img
+            src="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+            alt=""
+            class="banner__logo"
+          />
+        </a>
+        <div>
+          <h1 class="banner__heading">Trang Admin</h1>
+          <p class="banner__sub-heading">Tạo tài khoản người dùng</p>
+        </div>
+      </div>
+      <div class="header__wrapper container">
+        <div class="header__action">
+          <a href="/login" class="header__btn-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="form form__register">
+        <div class="form__info">
+          <div class="form__group">
+            <p class="form__label">Email</p>
+            <input type="text" class="form__input" name="email" required />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Password</p>
+            <input type="text" class="form__input" name="password" required />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Role</p>
+            <div class="form__group-radio">
+              <input id="radio-1" value="admin" type="radio" name="isAdmin" />
+              <label for="radio-1">Admin</label>
+              <input
+                id="radio-2"
+                value="user"
+                type="radio"
+                name="isAdmin"
+                checked
+              />
+              <label for="radio-2">User</label>
+            </div>
+          </div>
+        </div>
+
+        <p class="form_message" style="margin-left: 250px"><%= message %></p>
+        <div style="margin-left: 250px">
+          <button
+            class="form__btn-register form__btn-submit btn btn-primary"
+            style="display: inline-block"
+          >
+            Tạo Tài Khoản
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="/javascripts/adminCreate.js"></script>
+  </body>
+</html>

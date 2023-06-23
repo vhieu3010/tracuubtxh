@@ -1,0 +1,174 @@
+@media (max-width: 992px) {
+  .form__label {
+    font-size: 2.4rem;
+  }
+
+  .form__input {
+    font-size: 2.4rem;
+  }
+
+  .main {
+    padding: 5.4rem 3.2rem;
+  }
+
+  .banner {
+    align-items: start;
+    /* padding: 32px; */
+  }
+  .banner__logo {
+    width: 10rem;
+  }
+
+  .banner__heading,
+  .banner__sub-heading {
+    font-size: 2.8rem;
+    text-align: left;
+  }
+
+  .banner__sub-heading {
+    padding-top: 0.8rem;
+  }
+
+  .table {
+    width: 100%;
+  }
+
+  .filter {
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+
+  .filter__select {
+    padding: 1.2rem 3.2rem;
+    width: 100%;
+  }
+
+  .filter__styled-select {
+    width: 100%;
+    flex: 1;
+  }
+
+  .filter__search {
+    max-width: 100%;
+    width: 100%;
+    order: -1;
+  }
+
+  .modal__container {
+    margin: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translate(0, 0);
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .modal__wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .modal.show .modal__container {
+    transform: translate(0, 0);
+  }
+
+  .modal__action {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .form__group {
+    flex-direction: column;
+  }
+  .header {
+    padding: 2.4rem;
+    gap: 1.6rem;
+  }
+
+  .header__btn-logout {
+    font-size: 2rem;
+  }
+
+  .banner {
+    gap: 1.6rem;
+  }
+
+  .banner__heading,
+  .banner__sub-heading {
+    /* font-size: 2rem; */
+    text-align: left;
+  }
+
+  .filter__search {
+    height: 4.4rem;
+  }
+
+  .filter__select {
+    padding: 1rem 2.8rem;
+    outline: none;
+  }
+
+  .table__wrapper {
+    overflow: auto;
+    /* max-height: 450px; */
+  }
+
+  .main {
+    padding: 1.6rem;
+  }
+
+  .table {
+    min-width: 550px;
+  }
+
+  .table__head {
+    position: sticky;
+    top: 3.2rem;
+  }
+
+  .table__head tr {
+    background-color: #c0e7ff;
+  }
+
+  .table__head th {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal__group {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .header {
+    padding: 1.6rem;
+  }
+  .banner {
+    flex-direction: column;
+  }
+
+  .banner__heading,
+  .banner__sub-heading {
+    font-size: 2.4rem;
+    text-align: left;
+  }
+
+  .table__head {
+    position: sticky;
+    top: 3.2rem;
+  }
+
+  .table__head tr {
+    background-color: rgba(113, 180, 255, 0.744);
+  }
+
+  .table__head th {
+    border: 0;
+  }
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/admin.css" />
+    <link rel="stylesheet" href="/stylesheets/respond.css" />
+    <title>Trang Admin | Cập nhật users</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="banner">
+        <a href="/admin">
+          <img
+            src="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+            alt=""
+            class="banner__logo"
+          />
+        </a>
+        <div>
+          <h1 class="banner__heading">Trang Admin</h1>
+          <p class="banner__sub-heading">Cập nhật thông tin người dùng</p>
+        </div>
+      </div>
+      <div class="header__wrapper container">
+        <div class="header__action">
+          <a href="/login" class="header__btn-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="form">
+        <div class="form__info">
+          <div class="form__group">
+            <p class="form__label">Tên</p>
+            <input type="text" class="form__input" name="ten" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">SĐT</p>
+            <input type="text" class="form__input" name="dienThoai" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Ngày sinh</p>
+            <input type="date" class="form__input" name="ngaySinh" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Tổ dân phố</p>
+            <input type="text" class="form__input" name="toDanPho" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Địa chỉ đăng ký HKTT</p>
+            <input type="text" class="form__input" name="diaChiDangKy" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Địa chỉ hiện nay</p>
+            <input type="text" class="form__input" name="diaChi" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Số CCCD</p>
+            <input type="text" class="form__input" name="cccd" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Chế độ hưởng</p>
+            <input type="text" class="form__input" name="cheDoHuong" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">BHXH</p>
+            <div class="form__group-radio">
+              <input id="radio-1" value="Có" type="radio" name="bhxh" />
+              <label for="radio-1">Có</label>
+              <input
+                id="radio-2"
+                value="Không"
+                type="radio"
+                name="bhxh"
+                checked
+              />
+              <label for="radio-2">Không</label>
+            </div>
+          </div>
+          <div class="form__group">
+            <p class="form__label">Nhóm hưởng BTXH</p>
+            <input type="text" class="form__input" name="nhomHuong" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Mức trợ cấp BTXH</p>
+            <div class="form__multiple-input" data-name="mucBTXH">
+              <div class="form__multiple-input-group">
+                <input type="text" class="form__input" name="mucBTXH" />
+                <div class="form__multiple-input-action">
+                  <button type="button" class="form__btn-insert">Thêm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form__group">
+            <p class="form__label">Đối tượng chính sách NCC</p>
+            <input type="text" class="form__input" name="nguoiCoCong" />
+          </div>
+          <div class="form__group">
+            <p class="form__label">Mức trợ cấp NCC</p>
+            <div class="form__multiple-input" data-name="mucNCC">
+              <div class="form__multiple-input-group">
+                <input type="text" class="form__input" name="mucNCC" />
+                <div class="form__multiple-input-action">
+                  <button type="button" class="form__btn-insert">Thêm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form__group">
+            <p class="form__label">Ghi chú</p>
+            <div class="form__multiple-input" data-name="ghiChu">
+              <div class="form__multiple-input-group">
+                <input type="text" class="form__input" name="ghiChu" />
+                <div class="form__multiple-input-action">
+                  <button type="button" class="form__btn-insert">Thêm</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-left: 250px">
+          <button
+            class="form__btn-update form__btn-submit btn btn-primary"
+            style="display: inline-block"
+          >
+            Cập nhật
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script src="/javascripts/adminUpdate.js"></script>
+  </body>
+</html>

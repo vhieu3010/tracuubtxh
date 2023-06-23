@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/respond.css" />
+    <title>Đăng nhập</title>
+
+    <style>
+      body {
+        overflow: hidden;
+      }
+      @media (max-width: 992px) {
+        body {
+          overflow: visible;
+        }
+
+        .form {
+          margin-top: 3.2rem;
+          width: 100%;
+        }
+
+        .filter__search,
+        .form__btn-submit {
+          height: 5.4rem;
+          flex: none;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="banner" style="justify-content: center">
+        <img
+          src="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+          alt=""
+          class="banner__logo"
+        />
+        <div>
+          <h1 class="banner__heading">
+            Hệ thống tra cứu thông tin đối tượng BTXH & NCC
+          </h1>
+          <p class="banner__sub-heading">
+            Phường phước ninh - Quận hải châu - Thành Phố Đà Nẵng
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <form class="form" method="post" action="/login">
+        <h1 class="form__heding">Đăng nhập</h1>
+        <input
+          type="email"
+          name="email"
+          class="filter__search"
+          placeholder="Email"
+          required
+        />
+        <input
+          type="password"
+          name="password"
+          class="filter__search"
+          placeholder="Password"
+          required
+        />
+        <p class="form_message"><%= message %></p>
+        <button class="form__btn-submit btn btn-primary">Đăng nhập</button>
+      </form>
+    </main>
+  </body>
+</html>

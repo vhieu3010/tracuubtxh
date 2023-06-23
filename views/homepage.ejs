@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/respond.css" />
+    <title>Trang chủ</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="banner">
+        <img
+          src="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+          alt=""
+          class="banner__logo"
+        />
+        <div>
+          <h1 class="banner__heading">
+            Hệ thống tra cứu thông tin đối tượng BTXH & NCC
+          </h1>
+          <p class="banner__sub-heading">
+            Phường phước ninh - Quận hải châu - Thành Phố Đà Nẵng
+          </p>
+        </div>
+      </div>
+
+      <div class="header__wrapper container">
+        <div class="header__action">
+          <a href="/login" class="header__btn-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="filter">
+        <input
+          type="text"
+          class="filter__search"
+          placeholder="Tìm kiếm . . ."
+        />
+        <button class="filter__btn-search btn btn-primary">Tìm kiếm</button>
+      </div>
+      <div class="table__wrapper">
+        <table class="table">
+          <thead class="table__head">
+            <tr>
+              <th style="text-align: center">STT</th>
+              <th>Tên</th>
+              <th>SDT</th>
+              <th>Ngày sinh</th>
+              <th>Địa chỉ</th>
+              <th style="text-align: center">Chi tiết</th>
+            </tr>
+            <tr></tr>
+          </thead>
+          <tbody class="table__body"></tbody>
+        </table>
+        <div style="text-align: center; margin: 40px 0">
+          <button
+            class="more-btn form__btn-submit btn btn-primary display-none"
+          >
+            Xem thêm
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal">
+      <div class="modal__container">
+        <div class="modal__wrapper">
+          <h3 class="modal__heading">Thông tin chi tiết</h3>
+          <div class="modal__info"></div>
+        </div>
+        <button class="modal__btn-close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <script src="/javascripts/index.js"></script>
+  </body>
+</html>
