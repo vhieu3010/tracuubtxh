@@ -55,33 +55,44 @@
         <input
           type="text"
           class="filter__search"
-          placeholder="Tìm kiếm . . ."
+          placeholder="Nhập tên cần tìm..."
         />
-        <button class="filter__btn-search btn btn-primary">Tìm kiếm</button>
-        <a href="#!" class="filter__btn-add btn btn-primary">Tạo</a>
+        <button class="filter__btn-search btn btn-primary">
+          <i class="fa-solid fa-magnifying-glass"></i> Tìm kiếm
+        </button>
+        <a href="#!" class="filter__btn-add btn btn-primary"
+          ><i class="fa-solid fa-plus"></i> Tạo</a
+        >
+        <a id="export-btn" class="btn btn-primary"
+          ><i class="fa-solid fa-file-export"></i>Export</a
+        >
       </div>
 
       <div class="table__wrapper">
-        <table class="table">
-          <thead class="table__head">
-            <tr>
-              <th style="text-align: center">STT</th>
-              <th>Tên</th>
-              <th>SDT</th>
-              <th>Ngày sinh</th>
-              <th>Địa chỉ</th>
-              <th style="text-align: center">Sửa</th>
-              <th style="text-align: center">Xoá</th>
-            </tr>
-            <tr></tr>
-          </thead>
-          <tbody class="table__body"></tbody>
-        </table>
-        <div style="text-align: center; margin: 40px 0">
+        <div class="table__container">
+          <table class="table">
+            <thead class="table__head">
+              <tr>
+                <th style="text-align: center">STT</th>
+                <th>Tên</th>
+                <th>SDT</th>
+                <th>Ngày sinh</th>
+                <th>Địa chỉ</th>
+                <th style="text-align: center">Sửa</th>
+                <th style="text-align: center">Xoá</th>
+              </tr>
+              <tr></tr>
+            </thead>
+            <tbody class="table__body"></tbody>
+          </table>
+        </div>
+        <p class="no-data">Không tìm thấy dữ liệu</p>
+        <div style="display: flex; justify-content: center; margin: 40px 0">
           <button
             class="more-btn form__btn-submit btn btn-primary display-none"
           >
             Xem thêm
+            <i class="fa-solid fa-xmark"></i>
           </button>
         </div>
       </div>
@@ -115,6 +126,10 @@
       <div></div>
     </div>
 
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.13.1/xlsx.full.min.js"
+    ></script>
     <script src="/javascripts/adminHome.js"></script>
   </body>
 </html>

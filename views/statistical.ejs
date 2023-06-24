@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/styles.css" />
+    <link rel="stylesheet" href="/stylesheets/respond.css" />
+    <title>Thông kê</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="banner">
+        <a href="/">
+          <img
+            src="https://res.cloudinary.com/dasajiprr/image/upload/v1686027184/SearchUserApp/logo_dwsntx.png"
+            alt=""
+            class="banner__logo"
+          />
+        </a>
+        <div>
+          <h1 class="banner__heading">
+            Hệ thống tra cứu thông tin đối tượng BTXH & NCC
+          </h1>
+          <p class="banner__sub-heading">
+            Phường phước ninh - Quận hải châu - Thành Phố Đà Nẵng
+          </p>
+        </div>
+      </div>
+
+      <div class="header__wrapper container">
+        <div class="header__action">
+          <a href="/login" class="header__btn-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="statistical">
+        <div class="statistical__chart">
+          <h4 class="statistical__chart--heading">
+            Biểu Đồ Thể Hiện Tỉ Lệ Nhóm Hưởng Bảo Trợ Xã Hội
+          </h4>
+          <canvas id="chart-1"></canvas>
+        </div>
+
+        <div class="statistical__table">
+          <div>
+            <div class="statistical__table-head">
+              <p style="text-align: start">Nhóm hưởng BTXH</p>
+              <p>Số người</p>
+            </div>
+          </div>
+          <div id="statistical-tBody-1" class="statistical__table-body"></div>
+        </div>
+      </div>
+
+      <div class="statistical">
+        <div class="statistical__chart">
+          <h4
+            class="statistical__chart--heading"
+            style="padding-bottom: 4.8rem"
+          >
+            Biểu Đồ Thể Hiện Tỉ Lệ Đối Tượng Chính Sách Người Có Công
+          </h4>
+          <canvas id="chart-2"></canvas>
+        </div>
+
+        <div class="statistical__table">
+          <div>
+            <div class="statistical__table-head">
+              <p style="text-align: start">Đối tượng NCC</p>
+              <p style="white-space: nowrap">Số người</p>
+            </div>
+          </div>
+          <div
+            id="statistical-tBody-2"
+            class="statistical__table-body"
+            style="height: 600px; overflow: hidden; overflow-y: auto"
+          ></div>
+        </div>
+      </div>
+    </main>
+
+    <div class="overlay"></div>
+
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/javascripts/statistical.js"></script>
+  </body>
+</html>

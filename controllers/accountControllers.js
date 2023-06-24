@@ -8,6 +8,10 @@ module.exports = accountController = {
     res.render('login', { message: '' });
   },
 
+  renderStatistical: (req, res) => {
+    res.render('statistical');
+  },
+
   renderHomePage: (req, res) => {
     res.render('homepage');
   },

@@ -4,11 +4,24 @@ const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.modal__btn-close');
 const loading = document.querySelector('.lds-ring');
 const moreBtn = document.querySelector('.more-btn');
+const tHead = document.querySelector('.table__head tr');
+const tableContainer = document.querySelector('.table__container');
+const messageNoData = document.querySelector('.no-data');
 
 btnCloseModal.addEventListener('click', () => {
   modal.classList.remove('show');
   overlay.classList.remove('show');
   document.body.style.overflow = 'visible';
+});
+
+window.addEventListener('keydown', (e) => {
+  if (modal.classList.contains('show')) {
+    if (e.keyCode === 27) {
+      modal.classList.remove('show');
+      overlay.classList.remove('show');
+      document.body.style.overflow = 'visible';
+    }
+  }
 });
 
 // Handle render table when click button search
@@ -18,6 +31,9 @@ inputSearch.addEventListener('keydown', (e) => {
     renderListUser();
   }
 });
+
+tHead.style.borderBottom = '0';
+tableContainer.style.padding = '0';
 
 const searchBtn = document.querySelector('.filter__btn-search');
 searchBtn.addEventListener('click', renderListUser);
@@ -30,13 +46,16 @@ function renderListUser() {
     .then((res) => res.json())
     .then((data) => {
       if (data.data.length >= 10) moreBtn.classList.remove('display-none');
+      messageNoData.classList.add('display-none');
       const dataTable = document.querySelector('.table__body');
 
       let html = '';
 
       data.data.forEach((item, index) => {
         html += `<tr>
-              <td style="text-align: center;">${index + 1}</td>
+              <td style="text-align: center; font-weight: 600;">${
+                index + 1
+              }</td>
               <td style="white-space: nowrap;">${item.ten}</td>
               <td>${item.dienThoai}</td>
               <td>${item.ngaySinh}</td>
@@ -50,6 +69,9 @@ function renderListUser() {
 
       loading.classList.remove('show');
       overlay.classList.remove('show');
+
+      tableContainer.style.padding = '24px';
+      tHead.style.borderBottom = '2px solid #333';
 
       const detailBtn = document.querySelectorAll('.table__btn-detail');
       handleWatchDetail(detailBtn);
@@ -176,7 +198,7 @@ moreBtn.addEventListener('click', () => {
       } else {
         if (data.data.length < 10) moreBtn.classList.add('display-none');
         data.data.forEach((item, index) => {
-          html = `<td style="text-align: center;">${++numberRow}</td>
+          html = `<td style="text-align: center; font-weight: 600;">${++numberRow}</td>
                 <td style="white-space: nowrap;">${item.ten}</td>
                 <td>${item.dienThoai}</td>
                 <td>${item.ngaySinh}</td>

@@ -6,6 +6,10 @@ const loading = document.querySelector('.lds-ring');
 const moreBtn = document.querySelector('.more-btn');
 const selectSearch = document.querySelector('.filter__select');
 const btnCreate = document.querySelector('.filter__btn-add');
+const tHead = document.querySelector('.table__head tr');
+const tableContainer = document.querySelector('.table__container');
+const exportBtn = document.getElementById('export-btn');
+const messageNoData = document.querySelector('.no-data');
 
 let valueSelect = selectSearch.value;
 
@@ -33,8 +37,12 @@ inputSearch.addEventListener('keydown', (e) => {
   }
 });
 
+tableContainer.style.padding = '0';
+
 const searchBtn = document.querySelector('.filter__btn-search');
 searchBtn.addEventListener('click', () => {
+  tableContainer.style.padding = '24px';
+
   if (valueSelect === 'list-user') renderListUser();
   if (valueSelect === 'account-user') renderListAccount();
 });
@@ -45,7 +53,7 @@ const renderListUser = () => {
   const tHeadRow = document.querySelector('.table__head');
 
   tHeadRow.innerHTML = `
-    <tr>
+    <tr style="border-bottom: 2px solid #333">
       <th style="text-align: center">STT</th>
       <th>Tên</th>
       <th>SDT</th>
@@ -63,13 +71,16 @@ const renderListUser = () => {
     .then((res) => res.json())
     .then((data) => {
       if (data.data.length >= 10) moreBtn.classList.remove('display-none');
+      messageNoData.classList.add('display-none');
       const dataTable = document.querySelector('.table__body');
 
       let html = '';
 
       data.data.forEach((item, index) => {
         html += `<tr>
-              <td style="text-align: center;">${index + 1}</td>
+              <td style="text-align: center; font-weight: 600;">${
+                index + 1
+              }</td>
               <td style="white-space: nowrap;">${item.ten}</td>
               <td>${item.dienThoai}</td>
               <td>${item.ngaySinh}</td>
@@ -102,7 +113,7 @@ const renderListAccount = () => {
   const tHeadRow = document.querySelector('.table__head');
 
   tHeadRow.innerHTML = `
-    <tr>
+    <tr style="border-bottom: 2px solid #333">
       <th style="text-align: center;">STT</th>
       <th>Email</th>
       <th>Role</th>
@@ -123,7 +134,9 @@ const renderListAccount = () => {
       data.data.forEach((item, index) => {
         html += `
           <tr>
-              <td style="text-align: center;">${index + 1}</td>
+              <td style="text-align: center; font-weight: 600;">${
+                index + 1
+              }</td>
               <td style="white-space: nowrap;">${item.email}</td>
               <td>${item.isAdmin ? 'Admin' : 'User'}</td>
               <td style="text-align: center;">
@@ -145,6 +158,52 @@ const renderListAccount = () => {
 
       handleEditAccount(editBtn);
       handleRemoveAccount(removeBtn);
+    });
+};
+
+// Handle export data to excel file method
+function exportData(data) {
+  let filename = 'bang-tong-hop-tracuubtxhncc.xlsx';
+  let newData = data.map(function (obj) {
+    var newObj = {};
+    Object.keys(obj).forEach(function (key) {
+      if (key !== '_id') {
+        if (Array.isArray(obj[key])) {
+          newObj[key] = obj[key].join(', ');
+        } else {
+          newObj[key] = obj[key];
+        }
+      }
+    });
+    return newObj;
+  });
+  let ws = XLSX.utils.json_to_sheet(newData);
+  let wb = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb, ws, 'People');
+  let wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'binary' });
+  let blob = new Blob([s2ab(wbout)], { type: 'application/octet-stream' });
+  let href = URL.createObjectURL(blob);
+  let a = document.createElement('a');
+  a.href = href;
+  a.download = filename;
+  a.click();
+}
+
+function s2ab(s) {
+  let buf = new ArrayBuffer(s.length);
+  let view = new Uint8Array(buf);
+  for (let i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xff;
+  return buf;
+}
+
+exportBtn.onclick = () => {
+  fetch(`/users`)
+    .then((res) => res.json())
+    .then((data) => {
+      let check = confirm(
+        'Bạn có thực sự muốn xuất dữ liệu thành file excel không!'
+      );
+      if (check) exportData(data.data);
     });
 };
 
@@ -254,7 +313,7 @@ moreBtn.addEventListener('click', () => {
       } else {
         if (data.data.length < 10) moreBtn.classList.add('display-none');
         data.data.forEach((item, index) => {
-          html = `<td style="text-align: center;">${++numberRow}</td>
+          html = `<td style="text-align: center; font-weight: 600;">${++numberRow}</td>
           <td style="white-space: nowrap;">${item.ten}</td>
           <td>${item.dienThoai}</td>
           <td>${item.ngaySinh}</td>
