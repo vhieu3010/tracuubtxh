@@ -110,6 +110,7 @@ const renderListUser = () => {
 
 const renderListAccount = () => {
   moreBtn.classList.add('display-none');
+  messageNoData.classList.add('display-none');
   const tHeadRow = document.querySelector('.table__head');
 
   tHeadRow.innerHTML = `

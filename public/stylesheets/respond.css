@@ -1,4 +1,7 @@
 @media (max-width: 992px) {
+  .form {
+    width: 100%;
+  }
   .form__label {
     font-size: 2.4rem;
   }
@@ -80,6 +83,25 @@
   .modal__action {
     justify-content: space-between;
   }
+
+  .table__body td {
+    white-space: nowrap;
+  }
+
+  .statistical {
+    width: 100%;
+    flex-direction: column;
+    gap: 1.6rem;
+    padding: 1.6rem;
+  }
+
+  .statistical__chart {
+    width: 100%;
+  }
+
+  .statistical__table {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -127,15 +149,6 @@
     min-width: 550px;
   }
 
-  .table__head {
-    position: sticky;
-    top: 3.2rem;
-  }
-
-  .table__head tr {
-    background-color: #c0e7ff;
-  }
-
   .table__head th {
     border-radius: 0;
   }
@@ -158,17 +171,38 @@
     font-size: 2.4rem;
     text-align: left;
   }
-
+  /* 
   .table__head {
     position: sticky;
     top: 3.2rem;
-  }
+  } */
 
   .table__head tr {
-    background-color: rgba(113, 180, 255, 0.744);
+    background-color: #ffff;
   }
 
   .table__head th {
     border: 0;
   }
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.6);
 }

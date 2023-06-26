@@ -26,6 +26,17 @@ module.exports = userController = {
     });
   }),
 
+  filter: asyncHandler(async (req, res) => {
+    const response = await User.find({
+      $or: [{ nguoiCoCong: req.query.ncc }, { nhomHuong: req.query.btxh }],
+    }).select('ten dienThoai ngaySinh diaChi');
+
+    return res.status(200).json({
+      success: response ? true : false,
+      data: response ? response : 'Có lỗi xảy ra!',
+    });
+  }),
+
   getUserById: asyncHandler(async (req, res) => {
     if (req.params.id) {
       const response = await User.findById(req.params.id);

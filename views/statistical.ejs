@@ -52,50 +52,143 @@
 
     <main class="main">
       <div class="statistical">
-        <div class="statistical__chart">
-          <h4 class="statistical__chart--heading">
-            Biểu Đồ Thể Hiện Tỉ Lệ Nhóm Hưởng Bảo Trợ Xã Hội
-          </h4>
-          <canvas id="chart-1"></canvas>
-        </div>
-
-        <div class="statistical__table">
-          <div>
-            <div class="statistical__table-head">
-              <p style="text-align: start">Nhóm hưởng BTXH</p>
-              <p>Số người</p>
-            </div>
+        <div class="statistical__container">
+          <div class="statistical__chart">
+            <h4 class="statistical__chart--heading" style="text-align: center">
+              Biểu Đồ Thể Hiện Tỉ Lệ Nhóm Hưởng Bảo Trợ Xã Hội
+              <div
+                style="
+                  font-size: 1.2rem;
+                  font-weight: 400;
+                  padding-top: 0.8rem;
+                  padding-left: 1.6rem;
+                  text-align: end;
+                "
+              >
+                Đơn vị: <span style="color: #4f5dff">%</span>
+              </div>
+            </h4>
+            <canvas id="chart-1"></canvas>
           </div>
-          <div id="statistical-tBody-1" class="statistical__table-body"></div>
+
+          <div class="statistical__table">
+            <div>
+              <div class="statistical__table-head">
+                <p style="text-align: start">Nhóm hưởng BTXH</p>
+                <p>Số người</p>
+              </div>
+            </div>
+            <div id="statistical-tBody-1" class="statistical__table-body"></div>
+          </div>
+        </div>
+        <div class="statistical__table-user-1 table__wrapper">
+          <div class="table__container">
+            <table class="table">
+              <thead class="table__head">
+                <tr>
+                  <th style="text-align: center">STT</th>
+                  <th>Tên</th>
+                  <th>SDT</th>
+                  <th>Ngày sinh</th>
+                  <th>Địa chỉ</th>
+                  <th style="text-align: center">Chi tiết</th>
+                </tr>
+                <tr></tr>
+              </thead>
+              <tbody class="table__body table__body-1"></tbody>
+            </table>
+          </div>
+          <div style="display: flex; justify-content: center; margin: 40px 0">
+            <button
+              class="more-btn form__btn-submit btn btn-primary display-none"
+            >
+              Xem thêm
+              <i class="fa-solid fa-angle-down"></i>
+            </button>
+          </div>
         </div>
       </div>
 
       <div class="statistical">
-        <div class="statistical__chart">
-          <h4
-            class="statistical__chart--heading"
-            style="padding-bottom: 4.8rem"
-          >
-            Biểu Đồ Thể Hiện Tỉ Lệ Đối Tượng Chính Sách Người Có Công
-          </h4>
-          <canvas id="chart-2"></canvas>
+        <div class="statistical__container">
+          <div class="statistical__chart">
+            <h4
+              class="statistical__chart--heading"
+              style="padding-bottom: 4.8rem; text-align: center"
+            >
+              Biểu Đồ Thể Hiện Tỉ Lệ Đối Tượng Chính Sách Người Có Công
+              <div
+                style="
+                  font-size: 1.2rem;
+                  font-weight: 400;
+                  padding-top: 0.8rem;
+                  padding-left: 1.6rem;
+                  text-align: end;
+                "
+              >
+                Đơn vị: <span style="color: #4f5dff">%</span>
+              </div>
+            </h4>
+            <canvas id="chart-2"></canvas>
+          </div>
+
+          <div class="statistical__table">
+            <div>
+              <div class="statistical__table-head">
+                <p style="text-align: start">Đối tượng NCC</p>
+                <p style="white-space: nowrap">Số người</p>
+              </div>
+            </div>
+            <div
+              id="statistical-tBody-2"
+              class="statistical__table-body"
+              style="height: 600px; overflow: hidden; overflow-y: auto"
+            ></div>
+          </div>
         </div>
 
-        <div class="statistical__table">
-          <div>
-            <div class="statistical__table-head">
-              <p style="text-align: start">Đối tượng NCC</p>
-              <p style="white-space: nowrap">Số người</p>
-            </div>
+        <div class="statistical__table-user-2 table__wrapper">
+          <div class="table__container">
+            <table class="table">
+              <thead class="table__head">
+                <tr>
+                  <th style="text-align: center">STT</th>
+                  <th>Tên</th>
+                  <th>SDT</th>
+                  <th>Ngày sinh</th>
+                  <th>Địa chỉ</th>
+                  <th style="text-align: center; white-space: nowrap">
+                    Chi tiết
+                  </th>
+                </tr>
+                <tr></tr>
+              </thead>
+              <tbody class="table__body table__body-2"></tbody>
+            </table>
           </div>
-          <div
-            id="statistical-tBody-2"
-            class="statistical__table-body"
-            style="height: 600px; overflow: hidden; overflow-y: auto"
-          ></div>
+          <div style="display: flex; justify-content: center; margin: 40px 0">
+            <button
+              class="more-btn form__btn-submit btn btn-primary display-none"
+            >
+              Xem thêm
+              <i class="fa-solid fa-angle-down"></i>
+            </button>
+          </div>
         </div>
       </div>
     </main>
+
+    <div class="modal">
+      <div class="modal__container">
+        <div class="modal__wrapper">
+          <h3 class="modal__heading">Thông tin chi tiết</h3>
+          <div class="modal__info"></div>
+        </div>
+        <button class="modal__btn-close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+    </div>
 
     <div class="overlay"></div>
 
