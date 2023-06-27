@@ -1,4 +1,7 @@
 @media (max-width: 992px) {
+  .container {
+    padding: 3.2rem;
+  }
   .form {
     width: 100%;
   }
@@ -88,7 +91,7 @@
     white-space: nowrap;
   }
 
-  .statistical {
+  .statistical__container {
     width: 100%;
     flex-direction: column;
     gap: 1.6rem;
@@ -105,6 +108,9 @@
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 1.6rem;
+  }
   .form__group {
     flex-direction: column;
   }
@@ -151,6 +157,9 @@
 
   .table__head th {
     border-radius: 0;
+  }
+  .statistical {
+    padding: 1.6rem;
   }
 }
 

@@ -37,7 +37,7 @@
           <p class="banner__sub-heading">Tạo tài khoản người dùng</p>
         </div>
       </div>
-      <div class="header__wrapper container">
+      <div class="header__wrapper">
         <div class="header__action">
           <a href="/login" class="header__btn-logout">
             <i class="fa-solid fa-right-from-bracket"></i>
@@ -47,41 +47,43 @@
     </header>
 
     <main class="main">
-      <div class="form form__register">
-        <div class="form__info">
-          <div class="form__group">
-            <p class="form__label">Email</p>
-            <input type="text" class="form__input" name="email" required />
-          </div>
-          <div class="form__group">
-            <p class="form__label">Password</p>
-            <input type="text" class="form__input" name="password" required />
-          </div>
-          <div class="form__group">
-            <p class="form__label">Role</p>
-            <div class="form__group-radio">
-              <input id="radio-1" value="admin" type="radio" name="isAdmin" />
-              <label for="radio-1">Admin</label>
-              <input
-                id="radio-2"
-                value="user"
-                type="radio"
-                name="isAdmin"
-                checked
-              />
-              <label for="radio-2">User</label>
+      <div class="container">
+        <div class="form form__register">
+          <div class="form__info">
+            <div class="form__group">
+              <p class="form__label">Email</p>
+              <input type="text" class="form__input" name="email" required />
+            </div>
+            <div class="form__group">
+              <p class="form__label">Password</p>
+              <input type="text" class="form__input" name="password" required />
+            </div>
+            <div class="form__group">
+              <p class="form__label">Role</p>
+              <div class="form__group-radio">
+                <input id="radio-1" value="admin" type="radio" name="isAdmin" />
+                <label for="radio-1">Admin</label>
+                <input
+                  id="radio-2"
+                  value="user"
+                  type="radio"
+                  name="isAdmin"
+                  checked
+                />
+                <label for="radio-2">User</label>
+              </div>
             </div>
           </div>
-        </div>
 
-        <p class="form_message" style="margin-left: 250px"><%= message %></p>
-        <div style="margin-left: 250px">
-          <button
-            class="form__btn-register form__btn-submit btn btn-primary"
-            style="display: inline-block"
-          >
-            Tạo Tài Khoản
-          </button>
+          <p class="form_message" style="margin-left: 250px"><%= message %></p>
+          <div style="margin-left: 250px">
+            <button
+              class="form__btn-register form__btn-submit btn btn-primary"
+              style="display: inline-block"
+            >
+              Tạo Tài Khoản
+            </button>
+          </div>
         </div>
       </div>
     </main>

@@ -11,9 +11,7 @@
 .form__group {
   display: flex;
   justify-content: start;
-  /* justify-content: space-between; */
   padding-bottom: 1.6rem;
-  /* flex-direction: column; */
 }
 
 .form__note {
@@ -86,7 +84,7 @@
 
 .modal__container {
   top: 30%;
-  transform: translate(-50%, -50%) scale(0.8);
+  transform: scale(0.8);
   width: 40%;
   padding: 0;
   overflow: hidden;

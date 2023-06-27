@@ -228,3 +228,24 @@ function handleLoading() {
   loading.classList.add('show');
   overlay.classList.add('show');
 }
+
+const main = document.querySelector('.main');
+const header = document.querySelector('.header');
+const filter = document.querySelector('.filter');
+const table = document.querySelector('.table__wrapper');
+
+window.addEventListener('scroll', function () {
+  let scrollY = this.scrollY;
+
+  if (scrollY >= 150) {
+    main.classList.add('fixed');
+    header.classList.add('fixed');
+    filter.classList.add('fixed');
+    table.classList.add('fixed');
+  } else {
+    main.classList.remove('fixed');
+    header.classList.remove('fixed');
+    filter.classList.remove('fixed');
+    table.classList.remove('fixed');
+  }
+});

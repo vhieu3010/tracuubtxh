@@ -3,6 +3,7 @@ const loading = document.querySelector('.lds-ring');
 const overlay = document.querySelector('.overlay');
 const dataTable1 = document.querySelector('.table__body-1');
 const dataTable2 = document.querySelector('.table__body-2');
+const dataTable3 = document.querySelector('.table__body-3');
 const tHead = document.querySelector('.table__head tr');
 const tableContainer = document.querySelector('.table__container');
 const messageNoData = document.querySelector('.no-data');
@@ -49,6 +50,45 @@ function fetchAPIUser() {
 
       renderChartNCC(percentagesNcc);
       renderTableNCC(quantitiesNcc);
+
+      const totalBtxhAndNcc = data.data.filter((obj) => {
+        if (obj.nhomHuong && obj.nguoiCoCong) return obj;
+      }).length;
+
+      const totalOnlyBtxh = data.data.filter((obj) => {
+        if (obj.nhomHuong && !obj.nguoiCoCong) return obj;
+      }).length;
+
+      const totalOnlyNcc = data.data.filter((obj) => {
+        if (!obj.nhomHuong && obj.nguoiCoCong) return obj;
+      }).length;
+
+      const totalAll = totalBtxhAndNcc + totalOnlyBtxh + totalOnlyNcc;
+
+      const percentBtxhAndNcc = (totalBtxhAndNcc / totalAll) * 100;
+      const percentOnlyBtxh = (totalOnlyBtxh / totalAll) * 100;
+      const percentOnlyNcc = (totalOnlyNcc / totalAll) * 100;
+
+      const listNhomDoiTuong = [
+        {
+          name: 'Nhóm đối tượng có NCC và BTXH',
+          total: totalBtxhAndNcc,
+          percent: percentBtxhAndNcc,
+        },
+        {
+          name: 'Nhóm đối tượng chỉ có BTXH',
+          total: totalOnlyBtxh,
+          percent: percentOnlyBtxh,
+        },
+        {
+          name: 'Nhóm đối tượng chỉ có NCC',
+          total: totalOnlyNcc,
+          percent: percentOnlyNcc,
+        },
+      ];
+
+      renderChartNhomDoiTuong(listNhomDoiTuong);
+      renderTableNhomDoiTuong(listNhomDoiTuong);
     });
 }
 
@@ -223,6 +263,81 @@ function renderTableNCC(quantities) {
   tableBody.innerHTML = html;
 
   tableBody.style.height = '400px';
+  tableBody.style.overlay = 'hidden';
+}
+
+function renderChartNhomDoiTuong(array) {
+  const randomColor = generateRandomColors(array.length);
+
+  const dataChart = {
+    labels: array.map((obj) => obj.name),
+    datasets: [
+      {
+        label: 'Tỉ lệ',
+        data: array.map((obj) => obj.percent),
+        backgroundColor: randomColor,
+        hoverOffset: 4,
+      },
+    ],
+  };
+
+  const config = {
+    type: 'doughnut',
+    data: dataChart,
+    options: {
+      plugins: {
+        legend: {
+          display: true,
+          position: 'right',
+        },
+      },
+      onClick: function (evt, item) {
+        if (item.length > 0) {
+          let index = item[0].index;
+          let label = this.data.labels[index];
+
+          const tableUser = document.querySelector(
+            '.statistical__table-user-3'
+          );
+
+          let field = '';
+
+          console.log(label);
+
+          if (label === 'Nhóm đối tượng có NCC và BTXH') field = 'btxh-ncc';
+          if (label === 'Nhóm đối tượng chỉ có BTXH') field = 'only-btxh';
+          if (label === 'Nhóm đối tượng chỉ có NCC') field = 'only-ncc';
+
+          console.log(field);
+          tableUser.classList.add('show');
+
+          renderListUser(field, 'true', dataTable3);
+        }
+      },
+    },
+  };
+
+  const ctx = document.getElementById('chart-3');
+
+  new Chart(ctx, config);
+}
+
+function renderTableNhomDoiTuong(array) {
+  const tableBody = document.querySelector('#statistical-tBody-3');
+
+  const html = array
+    .map(
+      (obj) => `
+        <div class="statistical__table-row" style="padding: 0.8rem 0">
+          <p style="text-align: start">${obj.name}</p>
+          <p style="font-weight: 600">${obj.total}</p>
+        </div>
+  `
+    )
+    .join('');
+
+  tableBody.innerHTML = html;
+
   tableBody.style.overlay = 'hidden';
 }
 

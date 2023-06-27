@@ -3,6 +3,7 @@ const ctrl = require('../controllers/accountControllers');
 const { verifyToken, verifyAdmin } = require('../middlewares/verify');
 
 router.get('/login', ctrl.renderLoginPage);
+router.get('/logout', ctrl.logout);
 router.get('/statistical', verifyToken, ctrl.renderStatistical);
 router.get('/search', verifyToken, ctrl.search);
 router.get('/', verifyToken, ctrl.renderHomePage);

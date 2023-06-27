@@ -37,7 +37,7 @@
           <p class="banner__sub-heading">Tạo thông tin người dùng</p>
         </div>
       </div>
-      <div class="header__wrapper container">
+      <div class="header__wrapper">
         <div class="header__action">
           <a href="/login" class="header__btn-logout">
             <i class="fa-solid fa-right-from-bracket"></i>
@@ -47,107 +47,109 @@
     </header>
 
     <main class="main">
-      <form class="form" method="post" action="/users/create">
-        <div class="form__info">
-          <div class="form__group">
-            <label class="form__label">Tên</label>
-            <input type="text" class="form__input" name="ten" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">SĐT</label>
-            <input type="text" class="form__input" name="dienThoai" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">Ngày sinh</label>
-            <input type="date" class="form__input" name="ngaySinh" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">Tổ dân phố</label>
-            <input type="text" class="form__input" name="toDanPho" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">Địa chỉ đăng ký HKTT</label>
-            <input type="text" class="form__input" name="diaChiDangKy" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">Địa chỉ hiện nay</label>
-            <input type="text" class="form__input" name="diaChi" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">Số CCCD</label>
-            <input type="text" class="form__input" name="cccd" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">Chế độ hưởng</label>
-            <input type="text" class="form__input" name="cheDoHuong" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">BHXH</label>
-            <div class="form__group-radio">
-              <input id="radio-1" value="Có" type="radio" name="bhxh" />
-              <label for="radio-1">Có</label>
-              <input
-                id="radio-2"
-                value="Không"
-                type="radio"
-                name="bhxh"
-                checked
-              />
-              <label for="radio-2">Không</label>
+      <div class="container">
+        <form class="form" method="post" action="/users/create">
+          <div class="form__info">
+            <div class="form__group">
+              <label class="form__label">Tên</label>
+              <input type="text" class="form__input" name="ten" />
             </div>
-          </div>
-          <div class="form__group">
-            <label class="form__label">Nhóm hưởng BTXH</label>
-            <input type="text" class="form__input" name="nhomHuong" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">Mức trợ cấp BTXH</label>
-            <div class="form__multiple-input" data-name="mucBTXH">
-              <div class="form__multiple-input-group">
-                <input type="text" class="form__input" name="mucBTXH" />
-                <div class="form__multiple-input-action">
-                  <button type="button" class="form__btn-insert">Thêm</button>
+            <div class="form__group">
+              <label class="form__label">SĐT</label>
+              <input type="text" class="form__input" name="dienThoai" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">Ngày sinh</label>
+              <input type="date" class="form__input" name="ngaySinh" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">Tổ dân phố</label>
+              <input type="text" class="form__input" name="toDanPho" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">Địa chỉ đăng ký HKTT</label>
+              <input type="text" class="form__input" name="diaChiDangKy" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">Địa chỉ hiện nay</label>
+              <input type="text" class="form__input" name="diaChi" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">Số CCCD</label>
+              <input type="text" class="form__input" name="cccd" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">Chế độ hưởng</label>
+              <input type="text" class="form__input" name="cheDoHuong" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">BHXH</label>
+              <div class="form__group-radio">
+                <input id="radio-1" value="Có" type="radio" name="bhxh" />
+                <label for="radio-1">Có</label>
+                <input
+                  id="radio-2"
+                  value="Không"
+                  type="radio"
+                  name="bhxh"
+                  checked
+                />
+                <label for="radio-2">Không</label>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label">Nhóm hưởng BTXH</label>
+              <input type="text" class="form__input" name="nhomHuong" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">Mức trợ cấp BTXH</label>
+              <div class="form__multiple-input" data-name="mucBTXH">
+                <div class="form__multiple-input-group">
+                  <input type="text" class="form__input" name="mucBTXH" />
+                  <div class="form__multiple-input-action">
+                    <button type="button" class="form__btn-insert">Thêm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label">Đối tượng chính sách NCC</label>
+              <input type="text" class="form__input" name="nguoiCoCong" />
+            </div>
+            <div class="form__group">
+              <label class="form__label">Mức trợ cấp NCC</label>
+              <div class="form__multiple-input" data-name="mucNCC">
+                <div class="form__multiple-input-group">
+                  <input type="text" class="form__input" name="mucNCC" />
+                  <div class="form__multiple-input-action">
+                    <button type="button" class="form__btn-insert">Thêm</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form__group">
+              <label class="form__label">Ghi chú</label>
+              <div class="form__multiple-input" data-name="ghiChu">
+                <div class="form__multiple-input-group">
+                  <input type="text" class="form__input" name="ghiChu" />
+                  <div class="form__multiple-input-action">
+                    <button type="button" class="form__btn-insert">Thêm</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="form__group">
-            <label class="form__label">Đối tượng chính sách NCC</label>
-            <input type="text" class="form__input" name="nguoiCoCong" />
-          </div>
-          <div class="form__group">
-            <label class="form__label">Mức trợ cấp NCC</label>
-            <div class="form__multiple-input" data-name="mucNCC">
-              <div class="form__multiple-input-group">
-                <input type="text" class="form__input" name="mucNCC" />
-                <div class="form__multiple-input-action">
-                  <button type="button" class="form__btn-insert">Thêm</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="form__group">
-            <label class="form__label">Ghi chú</label>
-            <div class="form__multiple-input" data-name="ghiChu">
-              <div class="form__multiple-input-group">
-                <input type="text" class="form__input" name="ghiChu" />
-                <div class="form__multiple-input-action">
-                  <button type="button" class="form__btn-insert">Thêm</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div style="margin-left: 250px">
-          <button
-            class="form__btn-submit btn btn-primary"
-            style="display: inline-block"
-          >
-            Tạo
-          </button>
-        </div>
-      </form>
+          <div style="margin-left: 250px">
+            <button
+              class="form__btn-submit btn btn-primary"
+              style="display: inline-block"
+            >
+              Tạo
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
 
     <script src="/javascripts/adminCreate.js"></script>
